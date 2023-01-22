@@ -12,13 +12,15 @@ public class AddressBookMainClass {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program\n");
+
         addressbooks.addContacts();
+
     }
 
     public void addContacts() {
 
         System.out.println("Enter your choice");
-        System.out.println("1 : Add new contact    2 : Edit contact ");
+        System.out.println("1 : Add new contact    2 : Edit contact  3 : Delete contact");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -83,6 +85,15 @@ public class AddressBookMainClass {
                 addressbooks.editContact(nameToEdit, editFirstName, editLastName, editAddress, editCity, editState, editZip,
                         editPhoneNumber, editEmail);
                 addressbooks.addContacts();
+
+            case 3:
+                System.out.println("Enter the person Name");
+                String deletename = sc.next();
+                addressbooks.deleteContactDetails(deletename);
+                addressbooks.addContacts();
+                break;
+            default:
+                System.out.println("Please Enter correct choice");
         }
 
     }
@@ -128,6 +139,19 @@ public class AddressBookMainClass {
             }
         }
 
+    }
+
+    public void deleteContactDetails(String name) {
+        List<Contact> contactDetails = addressbook.getContacts();
+        for (int i = 0; i <= contactDetails.size() - 1; i++) {
+            Contact contactperson = contactDetails.get(i);
+            if (contactperson.getFirstName().equals(name)) {
+                contactDetails.remove(i);
+                addressbook.setContacts(contactDetails);
+            }
+        }
+        System.out.println("Contact deleted Successfully");
+        addressbooks.displayContacts(addressbook);
     }
 
 }

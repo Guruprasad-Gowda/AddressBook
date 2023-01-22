@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class AddressBookOperation {
-
+/*
     HashMap<String, AddressBook> addrBookMap = new HashMap<>();
 
     public void addContact() {
@@ -278,6 +278,6 @@ public class AddressBookOperation {
         System.out.print("\nPone Number : " + contact.getPhoneNo());
         System.out.print("\nE-mail      : " + contact.getEmail());
         System.out.print("\nZip         : " + contact.getZip());
-    }
+    }*/
 
 }

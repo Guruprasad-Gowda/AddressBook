@@ -20,7 +20,7 @@ public class AddressBookMainClass {
     public void addContacts() {
 
         System.out.println("Enter your choice");
-        System.out.println("1 : Add new contact    2 : Edit contact  3 : Delete contact");
+        System.out.println("1 : Add new contact    2 : Edit contact  3 : Delete contact  4: Add Multiple Contacts");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -92,6 +92,11 @@ public class AddressBookMainClass {
                 addressbooks.deleteContactDetails(deletename);
                 addressbooks.addContacts();
                 break;
+            case 4:
+
+                addressbooks.addMultipleContacts();
+                addressbooks.addContacts();
+                break;
             default:
                 System.out.println("Please Enter correct choice");
         }
@@ -152,6 +157,57 @@ public class AddressBookMainClass {
         }
         System.out.println("Contact deleted Successfully");
         addressbooks.displayContacts(addressbook);
+    }
+
+    public void addMultipleContacts() {
+
+        System.out.println("Enter the First Name");
+        String firstName = sc.next();
+
+        System.out.println("Enter the Last Name");
+        String lastName = sc.next();
+
+        System.out.println("Enter the Address Name");
+        String address = sc.next();
+
+        System.out.println("Enter the City Name");
+        String city = sc.next();
+
+        System.out.println("Enter the State Name");
+        String state = sc.next();
+
+        System.out.println("Enter the Zip Name");
+        int zip = sc.nextInt();
+
+        System.out.println("Enter the PhoneNumber");
+        long phoneNumber = sc.nextLong();
+
+        System.out.println("Enter the email");
+        String email = sc.next();
+        Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+        contacts.add(contact);
+        addressbook.setContacts(contacts);
+
+        System.out.println("Do you want add one more Contact Details");
+        System.out.println("1: Yes     2: No");
+        int choice = sc.nextInt();
+        switch (choice) {
+
+            case 1:
+                addressbooks.addMultipleContacts();
+                break;
+            case 2:
+                addressbooks.displayContacts(addressbook);
+                addressbooks.addContacts();
+                break;
+            default:
+                System.out.println("Please Enter correct choice");
+
+        }
+
+        addressbooks.displayContacts(addressbook);
+        addressbooks.addContacts();
+
     }
 
 }

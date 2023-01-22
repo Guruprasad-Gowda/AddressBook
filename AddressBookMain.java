@@ -3,6 +3,7 @@ package com.addressbook;
 import java.util.Scanner;
 
 public class AddressBookMain {
+
     public void createContact() {
 
         PersonContact contact = new PersonContact();

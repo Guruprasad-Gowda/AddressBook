@@ -1,9 +1,8 @@
 package com.addressbook;
 
 public class PersonContact {
-    String firstName, lastName, address, city, state, email;
+    String firstName, lastName, address, city, state, email, phoneNo;
     int zip;
-    long phoneNo;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -45,20 +44,12 @@ public class PersonContact {
         return state;
     }
 
-    public void setPhoneNo(long phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
 
-    public long getPhoneNo() {
+    public String getPhoneNo() {
         return phoneNo;
-    }
-
-    public void setZip(int zip) {
-        this.zip = zip;
-    }
-
-    public int getZip() {
-        return zip;
     }
 
     public void setEmail(String email) {
@@ -67,5 +58,13 @@ public class PersonContact {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public int getZip() {
+        return zip;
     }
 }
